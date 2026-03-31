@@ -261,6 +261,192 @@ export default function Home() {
     </div>
   );
 
+  /**
+   * NIVEAU 3 — API Bruteforce
+   * L'interface est volontairement floutée (blur-xl).
+   * Le joueur doit bruteforcer l'API /api/resonance depuis la console DevTools.
+   *
+   * Script de bruteforce à coller dans la console :
+   *   for (let i = 0; i <= 9999; i++) {
+   *     const pin = String(i).padStart(4, '0');
+   *     fetch('/api/resonance', {
+   *       method: 'POST',
+   *       headers: { 'Content-Type': 'application/json' },
+   *       body: JSON.stringify({ pin })
+   *     }).then(r => { if (r.ok) console.log('PIN trouvé :', pin); });
+   *   }
+   */
+  const renderLevel3 = () => (
+    <div className="text-center space-y-6">
+      {/* Le contenu est flouté pour simuler un "mur de verre" */}
+      <div className="blur-lg select-none pointer-events-none absolute inset-0 rounded-3xl" />
+
+      <Lock
+        className="mx-auto text-pink-500 relative z-10"
+        style={{ width: 48, height: 48, animation: "float 3s ease-in-out infinite" }}
+      />
+      <div className="relative z-10">
+        <p className="text-xs font-mono text-pink-500 uppercase tracking-widest mb-2">
+          Niveau 3 — API Bruteforce
+        </p>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+          Verrou harmonique
+        </h2>
+        <p className="text-gray-500 leading-relaxed text-sm">
+          Forcez l&apos;API{" "}
+          <span className="font-mono bg-pink-50 text-pink-600 px-1 rounded">/api/resonance</span>{" "}
+          avec un PIN à 4 chiffres.
+          <br />
+          <span className="text-xs text-gray-400">POST &#123; &quot;pin&quot;: &quot;XXXX&quot; &#125;</span>
+        </p>
+      </div>
+
+      {/* Formulaire PIN — visible mais peu lisible à cause du flou global */}
+      <form onSubmit={handlePinSubmit} className="space-y-3 relative z-10">
+        <input
+          type="text"
+          maxLength={4}
+          value={pin}
+          onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
+          placeholder="0000"
+          className="w-32 mx-auto block text-center text-2xl font-mono py-3 px-4 rounded-2xl border border-white/60 bg-white/50 backdrop-blur-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-400"
+        />
+        <button
+          type="submit"
+          disabled={pinLoading || pin.length !== 4}
+          className="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-medium disabled:opacity-50 transition-all"
+        >
+          {pinLoading ? "Vérification..." : "Déverrouiller"}
+        </button>
+        {pinError && (
+          <p className="text-red-400 text-sm">{pinError}</p>
+        )}
+      </form>
+
+      <p className="text-xs text-gray-400 italic relative z-10">
+        // Astuce : Ouvrez la console et bruteforcez l&apos;API
+      </p>
+    </div>
+  );
+
+  /**
+   * NIVEAU 4 — Console JS Hack
+   * Le bouton "Atteindre 963 Hz" fuit la souris (onMouseEnter).
+   * Solution : Taper ascendToDivine() dans la console DevTools.
+   * La fonction est exposée via window.ascendToDivine dans le useEffect ci-dessus.
+   */
+  const renderLevel4 = () => (
+    <div className="text-center space-y-6">
+      <Terminal
+        className="mx-auto text-purple-500"
+        style={{ width: 48, height: 48, animation: "float 3s ease-in-out infinite" }}
+      />
+      <div>
+        <p className="text-xs font-mono text-purple-500 uppercase tracking-widest mb-2">
+          Niveau 4 — Console JS
+        </p>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+          Transcendance
+        </h2>
+        <p className="text-gray-500 leading-relaxed text-sm">
+          Le bouton refuse votre contact.
+          <br />
+          Trouvez un autre chemin dans la <span className="font-mono text-purple-500">console</span>.
+        </p>
+      </div>
+
+      {/* Zone du bouton fuyant */}
+      <div className="relative h-44 rounded-2xl overflow-hidden bg-white/20 border border-white/30">
+        {/*
+         * CE BOUTON FUIT LA SOURIS (onMouseEnter → fleeButton).
+         * Il est impossible à cliquer normalement.
+         * Solution : window.ascendToDivine() dans la console DevTools.
+         * La fonction est définie dans le useEffect au début du composant.
+         */}
+        <button
+          onMouseEnter={fleeButton}
+          onTouchStart={fleeButton}
+          style={{
+            position: "absolute",
+            left: `${buttonPos.x}%`,
+            top: `${buttonPos.y}%`,
+            transform: "translate(-50%, -50%)",
+            animation: "glow-pulse 2s ease-in-out infinite",
+            transition: "left 0.1s ease, top 0.1s ease",
+          }}
+          className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-medium text-sm shadow-xl whitespace-nowrap"
+        >
+          ✦ Atteindre 963 Hz
+        </button>
+      </div>
+
+      <p className="text-xs text-gray-400 italic">
+        // Astuce : Tapez <span className="font-mono text-purple-500">ascendToDivine()</span> dans la console
+      </p>
+    </div>
+  );
+
+  /**
+   * ÉCRAN DE VICTOIRE
+   * Affiché après l'appel à window.ascendToDivine().
+   * Design épique avec gradient de texte et animation de flottement.
+   */
+  const renderVictory = () => (
+    <div className="text-center space-y-8 py-4">
+      <CheckCircle
+        className="mx-auto text-cyan-400"
+        style={{ width: 64, height: 64, animation: "float 3s ease-in-out infinite" }}
+      />
+
+      <div>
+        <p className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-3">
+          Ascension Complète
+        </p>
+        <h1
+          className="text-4xl font-bold leading-tight mb-4"
+          style={{
+            background: "linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          963 Hz
+          <br />
+          <span className="text-3xl">Fréquence Divine</span>
+          <br />
+          <span className="text-2xl">Atteinte</span>
+        </h1>
+        <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
+          Vous avez transcendé les 4 niveaux en manipulant le DOM,
+          l&apos;API et la console. L&apos;onde est pure.
+        </p>
+      </div>
+
+      {/* Fréquences parcourues */}
+      <div className="flex justify-center gap-4 text-xs font-mono">
+        {["HTML", "DOM", "API", "JS"].map((label, i) => (
+          <div key={label} className="flex flex-col items-center gap-1">
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
+              style={{
+                background: ["#06b6d4", "#8b5cf6", "#ec4899", "#06b6d4"][i],
+              }}
+            >
+              ✓
+            </div>
+            <span className="text-gray-400">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <p
+        className="text-6xl"
+        style={{ animation: "float 2s ease-in-out infinite" }}
+      >
+        ✨
+      </p>
+    </div>
+  );
 
   // ── Rendu principal ──────────────────────────────────────────────────────
 
