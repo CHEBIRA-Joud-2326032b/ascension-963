@@ -75,7 +75,7 @@ export default function IntroScreen({ onStart }) {
       {/* Bouton de démarrage */}
       <button
         onClick={onStart}
-        className="group relative px-8 py-3.5 rounded-2xl font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-cyan-200"
+        className="group relative px-8 py-3.5 rounded-2xl font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-cyan-200 cursor-pointer"
         style={{
           background: "linear-gradient(135deg, #06b6d4, #8b5cf6)",
         }}

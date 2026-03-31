@@ -53,10 +53,10 @@ export default function Level1HtmlHack({ onComplete }) {
        * ═══════════════════════════════════════════════════════
        */}
       <button
-        className="hidden px-8 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-2xl font-medium shadow-lg hover:shadow-cyan-200 hover:scale-105 transition-all duration-200"
+        className="hidden px-8 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-2xl font-medium shadow-lg hover:shadow-cyan-200 hover:scale-105 transition-all duration-200 cursor-pointer"
         onClick={onComplete}
       >
-        Initier la séquence
+        Initier l&#39;ascension
       </button>
 
       <p className="text-xs text-gray-400 italic">
