@@ -43,7 +43,7 @@ export default function Level2DomHack({ onComplete }) {
 
       <div>
         <p className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-2">
-          Épreuve II — 285 Hz
+          Épreuve II - 285 Hz
         </p>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Briser les Chaînes

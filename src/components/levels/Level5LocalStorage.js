@@ -55,14 +55,14 @@ export default function Level5LocalStorage({ onComplete }) {
 
       <div>
         <p className="text-xs font-mono text-yellow-500 uppercase tracking-widest mb-2">
-          Épreuve V — 962 Hz
+          Épreuve V - 962 Hz
         </p>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           L&apos;Ultime Souffle
         </h2>
         <div className="space-y-2 text-sm text-gray-500 leading-relaxed">
           <p>
-            962 Hz. L&apos;Onde frôle la perfection — un dernier Hz
+            962 Hz. L&apos;Onde frôle la perfection - un dernier Hz
             la sépare de la Résonance Divine.
           </p>
           <p>

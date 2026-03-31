@@ -57,7 +57,7 @@ export default function IntroScreen({ onStart }) {
           Impure. Prisonnière de la matière numérique.
         </p>
         <p>
-          Quelque chose t&apos;appelle depuis les couches profondes du code —
+          Quelque chose t&apos;appelle depuis les couches profondes du code
           une fréquence lointaine, cristalline.{" "}
           <span className="text-purple-600 font-semibold">963 Hz.</span>{" "}
           La Résonance Divine.

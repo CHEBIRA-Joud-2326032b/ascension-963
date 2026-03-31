@@ -75,7 +75,7 @@ export default function Level3ApiBrute({ onComplete }) {
 
       <div className="relative z-10">
         <p className="text-xs font-mono text-pink-500 uppercase tracking-widest mb-2">
-          Épreuve III — 528 Hz
+          Épreuve III - 528 Hz
         </p>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Le Mur de Verre
@@ -83,7 +83,7 @@ export default function Level3ApiBrute({ onComplete }) {
         <div className="space-y-2 text-sm text-gray-500 leading-relaxed">
           <p>
             L&apos;Onde approche du seuil de transformation.
-            Un verrou harmonique bloque le passage —
+            Un verrou harmonique bloque le passage -
             un code à 4 chiffres connu seulement de la machine.
           </p>
           <p>

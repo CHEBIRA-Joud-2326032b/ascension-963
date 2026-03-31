@@ -28,7 +28,7 @@ export default function Level1HtmlHack({ onComplete }) {
 
       <div>
         <p className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-2">
-          Épreuve I — 174 Hz
+          Épreuve I - 174 Hz
         </p>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Le Réveil

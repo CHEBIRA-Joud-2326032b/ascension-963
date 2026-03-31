@@ -58,7 +58,7 @@ export default function Level4ConsoleHack({ onComplete }) {
 
       <div>
         <p className="text-xs font-mono text-purple-500 uppercase tracking-widest mb-2">
-          Épreuve IV — 852 Hz
+          Épreuve IV - 852 Hz
         </p>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           L&apos;Inatteignable
@@ -67,13 +67,13 @@ export default function Level4ConsoleHack({ onComplete }) {
           <p>
             L&apos;Onde frémit. Elle perçoit l&apos;horizon de la divinité
             mais la réalité elle-même repousse son contact.
-            Ce bouton n&apos;est qu&apos;un leurre — il refuse de se laisser toucher.
+            Ce bouton n&apos;est qu&apos;un leurre - il refuse de se laisser toucher.
           </p>
           <p>
             Il existe un autre chemin.
             Quelque part dans le{" "}
             <span className="font-mono text-purple-500">tissu du code</span>,
-            une porte est entrouverte.
+            une porte est entrouverte - pour devenir almostDivine.
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@ export default function Level4ConsoleHack({ onComplete }) {
       </div>
 
       <p className="text-xs text-gray-400 italic">
-        La console connaît le chemin — l&apos;Onde le sent
+        La console connaît le chemin - l&apos;Onde le sent
       </p>
     </div>
   );
