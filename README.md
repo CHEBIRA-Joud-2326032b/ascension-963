@@ -3,7 +3,7 @@
 > *"Tu es une Onde Fondamentale. Impure. Prisonnière de la matière numérique.*
 > *Cinq épreuves te séparent de la Résonance Divine : 963 Hz."*
 
-Un jeu de hacking éducatif en une seule page où le joueur manipule son navigateur (DevTools) pour progresser à travers 5 niveaux et atteindre la fréquence divine.
+Un jeu de hacking éducatif en une seule page où le joueur manipule son navigateur pour progresser à travers 5 niveaux et atteindre la fréquence divine.
 
 ---
 
