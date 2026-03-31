@@ -143,6 +143,123 @@ export default function Home() {
     return configs[step - 1] || configs[0];
   };
 
+  // ── Rendu des niveaux ────────────────────────────────────────────────────
+
+  /**
+   * NIVEAU 1 — Hack HTML
+   * Le bouton "Initier" est masqué par la classe Tailwind "hidden".
+   * Le joueur doit ouvrir l'inspecteur, trouver le bouton et retirer la classe.
+   */
+  const renderLevel1 = () => (
+    <div className="text-center space-y-6">
+      <Waves
+        className="mx-auto text-cyan-400"
+        style={{ width: 48, height: 48, animation: "float 3s ease-in-out infinite" }}
+      />
+      <div>
+        <p className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-2">
+          Niveau 1 — Hack HTML
+        </p>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+          Onde dormante
+        </h2>
+        <p className="text-gray-500 leading-relaxed">
+          Bouton d&apos;initialisation <span className="font-mono text-pink-500">masqué</span> par le système.
+          <br />
+          Inspectez le DOM pour le révéler.
+        </p>
+      </div>
+
+      {/*
+       * CE BOUTON EST LA CLÉ DU NIVEAU 1.
+       * Il possède la classe "hidden" qui le rend invisible.
+       * Solution : Ouvrir les DevTools → Inspecteur → trouver ce bouton
+       * → sélectionner "hidden" dans ses classes → le supprimer → cliquer.
+       */}
+      <button
+        className="hidden px-8 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-2xl font-medium shadow-lg hover:shadow-cyan-200 hover:scale-105 transition-all duration-200"
+        onClick={() => setStep(2)}
+      >
+        ⚡ Initier la séquence
+      </button>
+
+      <p className="text-xs text-gray-400 italic">
+        // Astuce : Clic droit → Inspecter l&apos;élément
+      </p>
+    </div>
+  );
+
+  /**
+   * NIVEAU 2 — Hack DOM
+   * Le curseur est limité à max="200" alors que la cible est 432 Hz.
+   * Le joueur doit modifier l'attribut max via l'inspecteur (ex: max="500").
+   */
+  const renderLevel2 = () => (
+    <div className="text-center space-y-6">
+      <Zap
+        className="mx-auto text-cyan-500"
+        style={{ width: 48, height: 48, animation: "float 3s ease-in-out infinite" }}
+      />
+      <div>
+        <p className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-2">
+          Niveau 2 — Hack DOM
+        </p>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+          Calibration fréquentielle
+        </h2>
+        <p className="text-gray-500 leading-relaxed">
+          Réglez le curseur sur <span className="font-mono font-bold text-cyan-600">432 Hz</span> pour synchroniser l&apos;onde.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        {/* Affichage de la fréquence actuelle */}
+        <p
+          className="text-5xl font-mono font-bold"
+          style={{
+            background: "linear-gradient(to right, #06b6d4, #8b5cf6)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          {sliderValue} <span className="text-2xl">Hz</span>
+        </p>
+
+        {/*
+         * CET INPUT EST LA CLÉ DU NIVEAU 2.
+         * L'attribut max="200" empêche d'atteindre 432.
+         * Solution : DevTools → Inspecteur → cet input → double-cliquer sur
+         * max="200" → changer en max="500" → glisser le curseur à 432.
+         */}
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value={sliderValue}
+          onChange={(e) => {
+            const val = parseInt(e.target.value, 10);
+            setSliderValue(val);
+            // Déverrouillage automatique une fois 432 Hz atteint
+            if (val === 432) {
+              setTimeout(() => setStep(3), 600);
+            }
+          }}
+          className="w-full h-3 rounded-full cursor-pointer accent-cyan-500"
+          style={{ appearance: "auto" }}
+        />
+
+        <div className="flex justify-between text-xs text-gray-400 font-mono">
+          <span>0 Hz</span>
+          <span className="text-pink-400">432 Hz ← cible</span>
+          <span>200 Hz</span>
+        </div>
+      </div>
+
+      <p className="text-xs text-gray-400 italic">
+        // Astuce : Inspectez l&apos;attribut <span className="font-mono">max</span> du curseur
+      </p>
+    </div>
+  );
 
 
   // ── Rendu principal ──────────────────────────────────────────────────────
